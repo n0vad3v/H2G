@@ -44,6 +44,107 @@ On Ghost Website:
 
 `h2g.py` can generate html from the markdown files in Hexo, but importing them into Ghost will result in posts without any content.
 
+After some experiment, I found that Ghost imports MobileDoc to render `html` and `plaintext`, if the `mobiledoc` section is empty, all the content will be empty.
+
+**So we need a way to transform Markdown to MobileDoc format.**
+
+MobileDoc Example:
+```json
+{
+  "version": "0.3.1",
+  "atoms": [],
+  "cards": [
+	  [
+      "markdown",
+	  {
+        "markdown": "# This Markdown"
+      
+	  }
+    
+	  ]
+  
+  ],
+  "markups": [],
+  "sections": [
+	  [
+      1,
+      "h1",
+	  [
+		  [
+          0,
+          [],
+          0,
+          "Keshane is No.1"
+        
+		  ]
+      
+	  ]
+    
+	  ],
+	  [
+      1,
+      "h2",
+	  [
+		  [
+          0,
+          [],
+          0,
+          "Nova is No.2"
+        
+		  ]
+      
+	  ]
+    
+	  ],
+	  [
+      1,
+      "p",
+	  [
+		  [
+          0,
+          [],
+          0,
+          "This is Paragraph."
+        
+		  ]
+      
+	  ]
+    
+	  ],
+	  [
+      1,
+      "blockquote",
+	  [
+		  [
+          0,
+          [],
+          0,
+          "This is quote."
+        
+		  ]
+      
+	  ]
+    
+	  ],
+	  [
+      10,
+      0
+    
+	  ],
+	  [
+      1,
+      "p",
+      []
+    
+	  ]
+  
+  ]
+
+}
+```
+![](https://i.loli.net/2018/11/23/5bf7e0c3ba53e.png)
+
+
 # Known Issues
 
 * Importing the generated file will result in all imported blog posts without any content
